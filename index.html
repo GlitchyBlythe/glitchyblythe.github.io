@@ -1,46 +1,70 @@
+<div class="empire-container">
+    <h2 class="glitch-text" data-text="EMPIRE EXPANSION">EMPIRE EXPANSION</h2>
+    <p class="sub-text">Target: Washington Relocation</p>
+    
+    <div class="progress-box">
+        <div class="progress-bar-bg">
+            <div class="progress-fill" style="width: 35%;">
+                <span class="progress-percent">35%</span>
+            </div>
+        </div>
+    </div>
+    
+    <p class="status-msg">Next Milestone: Cross-Border Logistics</p>
+</div>
 
-<!DOCTYPE html>
-<html style="background:#000;color:#0f0;font-family:'Courier New',monospace;line-height:1.6">
-<head>
-<title>root@glitchyblythe:~# tribute</title>
 <style>
-body{margin:40px;background:#000;color:#0f0;}
-.blink{animation:b 1s steps(5,start) infinite;}
-@keyframes b{to{visibility:hidden;}}
-button{background:#000;border:1px solid #0f0;color:#0f0;padding:8px 12px;margin:5px;cursor:pointer;font-family:inherit;}
-button:hover{background:#0f0;color:#000;}
+/* GLITCHY STYLING */
+:root {
+    --glitch-neon: #00f3ff;
+    --glitch-pink: #ff00ff;
+    --bg-dark: #0a0a0a;
+}
+
+.empire-container {
+    background: #111;
+    padding: 20px;
+    border: 1px solid #333;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    margin-top: 50px;
+}
+
+.glitch-text {
+    font-size: 2rem;
+    position: relative;
+    color: white;
+    text-shadow: 2px 0 var(--glitch-pink), -2px 0 var(--glitch-neon);
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 30px;
+    background: #222;
+    border: 1px solid #444;
+    position: relative;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--glitch-pink), var(--glitch-neon));
+    box-shadow: 0 0 15px var(--glitch-neon);
+    transition: width 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.progress-percent {
+    padding-right: 10px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: black;
+}
+
+.sub-text { color: #888; font-size: 0.9rem; }
+.status-msg { color: var(--glitch-neon); font-style: italic; font-size: 0.8rem; }
 </style>
-</head>
-<body>
-
-<h1 class="blink">root@glitchyblythe:~# sudo drain-wallet --force</h1>
-<pre>
-Student loans left : $41,237.16
-4090 rig status    : NOT FUNDED
-Your dignity       : COMPROMISED
-Glitch Academy     : 11 spots left
-
-Send now or I press ENTER forever.
-</pre>
-
-<b>Initial tribute $77 → any coin below</b><br><br>
-
-<b>ETH</b><br>
-0x0353Ca6Dd2730Fa9F8e757f571C095B7791145A5
-<button onclick="copy(this,'0x0353Ca6Dd2730Fa9F8e757f571C095B7791145A5')">COPY ETH</button><br><br>
-
-<b>SOL / USDC (Solana)</b><br>
-GyDdfxywtgJKBy5QR7FHZS3N1LvzYuKLXAF4hCgrSMKy
-<button onclick="copy(this,'GyDdfxywtgJKBy5QR7FHZS3N1LvzYuKLXAF4hCgrSMKy')">COPY SOL/USDC</button><br><br>
-
-<b>XMR (Monero)</b><br>
-4ByeEKTJbi3faVNHTWEupmM1fdwEv95CqCqC7rCDdVhXDt4vj5E4FB1jUKxNAF6EHFHmuQhnHoXcUK84Nc4cQfmfKQ8zXo5FtU2AxkRbzo
-<button onclick="copy(this,'4ByeEKTJbi3faVNHTWEupmM1fdwEv95CqCqC7rCDdVhXDt4vj5E4FB1jUKxNAF6EHFHmuQhnHoXcUK84Nc4cQfmfKQ8zXo5FtU2AxkRbzo')">COPY XMR</button><br><br>
-
-<small>All coins land instantly · 0 fees · 100 % to me</small>
-
-<script>
-function copy(e,t){navigator.clipboard.writeText(t);e.textContent='COPIED ✓';setTimeout(()=>e.textContent='COPY',2000);}
-</script>
-</body>
-</html>
