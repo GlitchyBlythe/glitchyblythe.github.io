@@ -169,15 +169,18 @@ GyDdfxywtgJKBy5QR7FHZS3N1LvzYuKLXAF4hCgrSMKy
 
 <script>
   function copy(e,t){navigator.clipboard.writeText(t);e.textContent='COPIED ✓';setTimeout(()=>e.textContent='COPY',2000);}
-  
-  // Animate progress bar from left to right on page load
-  window.addEventListener('load', function() {
+  // Animate progress bar from left to right on page load with slight delay for visibility
+window.addEventListener('load', function() {
+  setTimeout(function() {
     document.getElementById('bar-fill').style.width = '35%';
-  });
+  }, 500); // 0.5 second delay to ensure animation triggers
+});
+  
 </script>
 
 </body>
 </html>
+
 
 
 
