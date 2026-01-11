@@ -2,6 +2,13 @@
 <!DOCTYPE html>
 <html style="background:#000;color:#0f0;font-family:'Courier New',monospace;line-height:1.6">
 <head>
+  <meta http-equiv="Content-Security-Policy" content="
+  default-src 'self' https://premium.chat;
+  script-src 'self' https://premium.chat 'unsafe-eval' 'unsafe-inline';
+  style-src 'self' 'unsafe-inline';
+  connect-src 'self' https://premium.chat;
+  img-src 'self' data: https://premium.chat;
+">
 <title>root@glitchyblythe:~# tribute</title>
 <style>
 body{margin:40px;background:#000;color:#0f0;}
@@ -134,6 +141,7 @@ function copy(e,t){navigator.clipboard.writeText(t);e.textContent='COPIED ✓';s
 
 </body>
 </html>
+
 
 
 
