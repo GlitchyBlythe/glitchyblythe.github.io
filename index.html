@@ -91,7 +91,49 @@ GyDdfxywtgJKBy5QR7FHZS3N1LvzYuKLXAF4hCgrSMKy
   w.premiumchat_domain = 'https://premium.chat/';var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = w.premiumchat_domain+'embed/js/widget.js'; var ss = d.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);})();}
   p.push({'num': p.length, 'wid': i, 'type': 'button'});})(document, window,871437);
   </script>
+<!-- Premium.Chat embed with custom "CALL ME NOW" overlay -->
+<div class="pchat-widget-placeholder" style="margin: 12px auto; max-width: 360px; position: relative; display: block;"></div>
 
+<script type='text/javascript'>
+(function(d,w,i){w.premiumchat = w.premiumchat || [];var p = w.premiumchat; if(!p.length){(()=>{
+w.premiumchat_domain = 'https://premium.chat/';var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = w.premiumchat_domain+'embed/js/widget.js'; var ss = d.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);})();}
+p.push({'num': p.length, 'wid': i});})(document, window,871836);
+</script>
+
+<!-- Overlay style to show "CALL ME NOW" -->
+<style>
+  .custom-call-overlay {
+    position: absolute;
+    inset: 0;
+    background: #00ff41;
+    color: #000;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(0,255,65,0.6);
+    pointer-events: none; /* clicks go through to the real button */
+    text-transform: uppercase;
+    z-index: 5;
+    border: none;
+  }
+  .pchat-widget-placeholder {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  /* Hide or dim original text if needed */
+  .pchat-widget-placeholder button > *:not(.custom-call-overlay) {
+    opacity: 0 !important;
+  }
+</style>
+
+<!-- The overlay text -->
+<div class="custom-call-overlay">CALL ME NOW</div>
 </center>
 
 <!-- Your goal section (moved after buttons for better flow – or keep before if you prefer) -->
@@ -122,6 +164,7 @@ function copy(e,t){navigator.clipboard.writeText(t);e.textContent='COPIED ✓';s
 
 </body>
 </html>
+
 
 
 
