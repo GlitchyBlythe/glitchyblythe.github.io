@@ -100,39 +100,9 @@ w.premiumchat_domain = 'https://premium.chat/';var s = d.createElement('script')
 p.push({'num': p.length, 'wid': i});})(document, window,871836);
 </script>
 
-<!-- Overlay style to show "CALL ME NOW" -->
-<style>
-  .custom-call-overlay {
-    position: absolute;
-    inset: 0;
-    background: #00ff41;
-    color: #000;
-    font-family: 'Courier New', monospace;
-    font-weight: bold;
-    font-size: 1.3em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    box-shadow: 0 0 15px rgba(0,255,65,0.6);
-    pointer-events: none; /* clicks go through to the real button */
-    text-transform: uppercase;
-    z-index: 5;
-    border: none;
-  }
-  .pchat-widget-placeholder {
-    position: relative;
-    width: 100%;
-    max-width: 360px;
-    margin: 0 auto;
-  }
-  /* Hide or dim original text if needed */
-  .pchat-widget-placeholder button > *:not(.custom-call-overlay) {
-    opacity: 0 !important;
-  }
-</style>
 
-<!-- The overlay text -->
+
+
 <div class="custom-call-overlay">CALL ME NOW</div>
 </center>
 
@@ -164,6 +134,7 @@ function copy(e,t){navigator.clipboard.writeText(t);e.textContent='COPIED ✓';s
 
 </body>
 </html>
+
 
 
 
