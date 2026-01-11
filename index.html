@@ -22,7 +22,7 @@
   <meta property="og:description" content="Cyber goth queen ready to drain your wallet. Exclusive content, premium interactions, Throne wishlist. Submit tribute & enter the glitch realm.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://glitchyblythe.github.io/">
-  <meta property="og:image" content="https://glitchyblythe.github.io/og-preview.jpg"> <!-- Upload a 1200x630 neon/glitch image to your repo root -->
+  <meta property="og:image" content="https://glitchyblythe.github.io/og-preview.jpg">
   <meta property="og:site_name" content="GlitchyBlythe Terminal">
   <meta property="og:locale" content="en_US">
 
@@ -39,6 +39,23 @@
     @keyframes b{to{visibility:hidden;}}
     button{background:#000;border:1px solid #0f0;color:#0f0;padding:8px 12px;margin:5px;cursor:pointer;font-family:inherit;}
     button:hover{background:#0f0;color:#000;}
+    .lurker-box{
+      border:1px solid #0f0;
+      padding:15px;
+      margin:20px 0;
+      background:#001a00;
+      box-shadow:0 0 10px rgba(0,255,65,0.3);
+    }
+    .glitch-text{
+      animation:glitch 0.5s infinite;
+    }
+    @keyframes glitch{
+      0%{text-shadow:2px 0 #ff00ff,-2px 0 #00ffff;}
+      25%{text-shadow:-2px 0 #ff00ff,2px 0 #00ffff;}
+      50%{text-shadow:2px 0 #00ffff,-2px 0 #ff00ff;}
+      75%{text-shadow:-2px 0 #00ffff,2px 0 #ff00ff;}
+      100%{text-shadow:2px 0 #ff00ff,-2px 0 #00ffff;}
+    }
   </style>
 
   <!-- Structured Data (JSON-LD) for rich results -->
@@ -60,6 +77,20 @@
 <body>
 
 <h1 class="blink">root@glitchyblythe:~# sudo drain-wallet --force</h1>
+
+<!-- LURKER COUNTER -->
+<div class="lurker-box">
+  <pre style="margin:0;">
+┌─[ SURVEILLANCE ACTIVE ]─────────────────────┐
+│                                              │
+│  <span class="glitch-text" id="lurker-count">0</span> LURKERS DETECTED                      │
+│  <span id="session-id">SESSION: XXXX-XXXX-XXXX</span>            │
+│                                              │
+│  Your presence has been logged.              │
+│  <span style="color:#ff0066;">⚠ IP tracked. Behave accordingly.</span>      │
+└──────────────────────────────────────────────┘
+  </pre>
+</div>
 
 <pre>
 Student loans left : $41,237.16
@@ -168,25 +199,84 @@ GyDdfxywtgJKBy5QR7FHZS3N1LvzYuKLXAF4hCgrSMKy
 </p>
 
 <script>
-  function copy(e,t){navigator.clipboard.writeText(t);e.textContent='COPIED ✓';setTimeout(()=>e.textContent='COPY',2000);}
-  // Animate progress bar from left to right on page load with slight delay for visibility
-window.addEventListener('load', function() {
-  setTimeout(function() {
-    document.getElementById('bar-fill').style.width = '35%';
-  }, 500); // 0.5 second delay to ensure animation triggers
-});
+  // Copy function for crypto addresses
+  function copy(e,t){
+    navigator.clipboard.writeText(t);
+    e.textContent='COPIED ✓';
+    setTimeout(()=>e.textContent='COPY',2000);
+  }
   
+  // Progress bar animation
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      document.getElementById('bar-fill').style.width = '35%';
+    }, 500);
+  });
+
+  // LURKER COUNTER SYSTEM
+  (function() {
+    // Generate session ID (fake but looks legit)
+    function generateSessionID() {
+      const chars = 'ABCDEF0123456789';
+      let id = '';
+      for(let i = 0; i < 3; i++) {
+        for(let j = 0; j < 4; j++) {
+          id += chars[Math.floor(Math.random() * chars.length)];
+        }
+        if(i < 2) id += '-';
+      }
+      return id;
+    }
+
+    // Get or create lurker count
+    function updateLurkerCount() {
+      let count = localStorage.getItem('glitchy_lurker_count');
+      let lastVisit = localStorage.getItem('glitchy_last_visit');
+      let now = Date.now();
+      
+      // If no count exists, start at a believable number
+      if(!count) {
+        count = Math.floor(Math.random() * 50) + 100; // Start between 100-150
+      } else {
+        count = parseInt(count);
+      }
+      
+      // Only increment if last visit was more than 1 hour ago (prevents spam refreshing)
+      if(!lastVisit || (now - parseInt(lastVisit)) > 3600000) {
+        count++;
+        localStorage.setItem('glitchy_last_visit', now.toString());
+      }
+      
+      localStorage.setItem('glitchy_lurker_count', count.toString());
+      return count;
+    }
+
+    // Animate counter with glitch effect
+    function animateCounter(target) {
+      let current = 0;
+      const increment = Math.ceil(target / 50);
+      const counter = document.getElementById('lurker-count');
+      
+      const timer = setInterval(() => {
+        current += increment;
+        if(current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        counter.textContent = current.toString().padStart(4, '0');
+      }, 20);
+    }
+
+    // Initialize on page load
+    window.addEventListener('load', function() {
+      const sessionID = generateSessionID();
+      document.getElementById('session-id').textContent = 'SESSION: ' + sessionID;
+      
+      const count = updateLurkerCount();
+      animateCounter(count);
+    });
+  })();
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
